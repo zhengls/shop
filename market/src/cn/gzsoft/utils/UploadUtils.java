@@ -24,7 +24,11 @@ public class UploadUtils {
 	 * @return	真实名称
 	 */
 	public static String getRealName(String name){
+
 		//获取最后一个"/"我也不知道要说点啥右边做什么
+
+		//获取最后一个"/"我也不知道要说点啥左边做什么
+
 		int index = name.lastIndexOf("\\");
 		return name.substring(index+1);
 	}
