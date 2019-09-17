@@ -10,23 +10,21 @@ import java.util.Random;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.IOUtils;
-
 public class UploadUtils {
 	/**
 	 * 获取文件真实名称
 	 * 由于浏览器的不同获取的名称可能为:c:/upload/1.jpg或者1.jpg 
 	 * 最终获取的为  1.jpg
+	 * 
 	 * @param name 上传上来的文件名称
 	 * @return	真实名称
 	 */
 	public static String getRealName(String name){
-		//获取最后一个"/"
+		//获取最后一个"/"我也不知道要说点啥
 		int index = name.lastIndexOf("\\");
 		return name.substring(index+1);
 	}
