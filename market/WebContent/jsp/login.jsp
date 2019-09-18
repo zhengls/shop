@@ -1,17 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
 <!doctype html>
 <html>
-<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>会员登录</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css" />
-		<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
-<!-- 引入自定义css文件 style.css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css"/>
-
+<head>		
 <style>
   body{
    margin-top:20px;
@@ -33,76 +25,20 @@ font {
     padding-right:17px;
 }
  </style>
+ 
+ <script type="text/javascript">
+		 $(function(){
+		    var un = $.cookie('remUName');
+		    $("#username").val(un);		    
+		    
+		    
+		 })
+       function getYZM(a){
+    	   a.src="${pageContext.request.contextPath}/CodeServlet?"+new Date().getTime();
+       }
+ </script>
 </head>
 <body>
-	
-	
-	
-	
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.htm">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2015-12-30
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-
-	
-	
-	
-	
-	
 	
 <div class="container"  style="width:100%;height:460px;background:#FF2C4C url('${pageContext.request.contextPath}/images/loginbg.jpg') no-repeat;">
 <div class="row"> 
@@ -112,10 +48,10 @@ font {
 	
 	<div class="col-md-5">
 				<div style="width:440px;border:1px solid #E7E7E7;padding:20px 0 20px 30px;border-radius:5px;margin-top:60px;background:#fff;">
-				<font>会员登录</font>USER LOGIN ${msg }
+				<font>会员登录</font>USER LOGIN <font style="color:red">${msg }</font>
 
 				<div>&nbsp;</div>
-<form class="form-horizontal" action="${pageContext.request.contextPath }/user" method="post">
+<form class="form-horizontal" action="${pageContext.request.contextPath }/UserServlet?m=login" method="post">
 	<input type="hidden" name="method" value="login">
   
  <div class="form-group">
@@ -133,10 +69,10 @@ font {
    <div class="form-group">
         <label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
     <div class="col-sm-3">
-      <input type="text" class="form-control" id="inputPassword3" placeholder="请输入验证码">
+      <input type="text" name="yzm" class="form-control" id="inputPassword3" placeholder="请输入验证码">
     </div>
     <div class="col-sm-3">
-      <img src="${pageContext.request.contextPath}/image/captcha.jhtml"/>
+      <img src="${pageContext.request.contextPath}/CodeServlet" onclick="getYZM(this)"/>
     </div>
     
   </div>
@@ -147,7 +83,7 @@ font {
           <input type="checkbox"> 自动登录
         </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label>
-          <input type="checkbox"> 记住用户名
+          <input type="checkbox" name="remUName" value="ok" ${cookie.remUName==null?"":"checked='checked'" }> 记住用户名
         </label>
       </div>
     </div>

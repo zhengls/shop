@@ -48,5 +48,10 @@ public class UserServiceImpl implements UserService {
 		}
 	
 	}
+	@Override
+	public User login(String username, String passwordString) throws SQLException {
+		UserDao ud = new UserDaoImpl();		
+		return ud.login(username,passwordString);
+	}
 
 }

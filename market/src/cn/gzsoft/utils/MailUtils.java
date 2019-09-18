@@ -65,7 +65,7 @@ public class MailUtils {
 		// 发送服务器需要身份验证  
         props.setProperty("mail.smtp.auth", "true");  
         // 设置邮件服务器主机名  
-        props.setProperty("mail.host", "smtp.163.com");  
+        props.setProperty("mail.host", "smtp.qq.com");  
         // 发送邮件协议名称  
         props.setProperty("mail.transport.protocol", "smtp");
 
@@ -73,7 +73,7 @@ public class MailUtils {
 		Authenticator auth = new Authenticator() {
 			public PasswordAuthentication getPasswordAuthentication() {
 				//设置发送人的帐号和密码
-				return new PasswordAuthentication("sellknow@163.com", "zlsmpp1995");
+				return new PasswordAuthentication("2847539310@qq.com", "djtjefqewgkfdcdf");
 			}
 		};
 		
@@ -84,7 +84,7 @@ public class MailUtils {
 		Message message = new MimeMessage(session);
 
 		//设置发送者
-		message.setFrom(new InternetAddress("sellknow@163.com"));
+		message.setFrom(new InternetAddress("2847539310@qq.com"));
 
 		//设置发送方式与接收者
 		message.setRecipient(RecipientType.TO, new InternetAddress(email)); 

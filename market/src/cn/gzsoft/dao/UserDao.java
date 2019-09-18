@@ -10,4 +10,6 @@ public interface UserDao {
 
 	int checkRegiste(String codeString) throws SQLException;
 
+	User login(String username, String passwordString) throws SQLException;
+
 }

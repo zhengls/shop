@@ -5,7 +5,7 @@ import java.util.Date;
 public class User {
 private String uid;
 private String username;
-private String passwrod;
+private String password;
 private String name;
 private String email;
 private String telephone;
@@ -19,7 +19,7 @@ public User(String uid, String username, String passwrod, String name, String em
 	super();
 	this.uid = uid;
 	this.username = username;
-	this.passwrod = passwrod;
+	this.password = password;
 	this.name = name;
 	this.email = email;
 	this.telephone = telephone;
@@ -45,11 +45,11 @@ public String getUsername() {
 public void setUsername(String username) {
 	this.username = username;
 }
-public String getPasswrod() {
-	return passwrod;
+public String getPassword() {
+	return password;
 }
-public void setPasswrod(String passwrod) {
-	this.passwrod = passwrod;
+public void setPassword(String password) {
+	this.password = password;
 }
 public String getName() {
 	return name;
@@ -101,7 +101,7 @@ public int hashCode() {
 	result = prime * result + ((code == null) ? 0 : code.hashCode());
 	result = prime * result + ((email == null) ? 0 : email.hashCode());
 	result = prime * result + ((name == null) ? 0 : name.hashCode());
-	result = prime * result + ((passwrod == null) ? 0 : passwrod.hashCode());
+	result = prime * result + ((password == null) ? 0 : password.hashCode());
 	result = prime * result + ((sex == null) ? 0 : sex.hashCode());
 	result = prime * result + state;
 	result = prime * result + ((telephone == null) ? 0 : telephone.hashCode());
@@ -138,10 +138,10 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!name.equals(other.name))
 		return false;
-	if (passwrod == null) {
-		if (other.passwrod != null)
+	if (password == null) {
+		if (other.password != null)
 			return false;
-	} else if (!passwrod.equals(other.passwrod))
+	} else if (!password.equals(other.password))
 		return false;
 	if (sex == null) {
 		if (other.sex != null)
@@ -169,7 +169,7 @@ public boolean equals(Object obj) {
 }
 @Override
 public String toString() {
-	return "User [uid=" + uid + ", username=" + username + ", passwrod=" + passwrod + ", name=" + name + ", email="
+	return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", name=" + name + ", email="
 			+ email + ", telephone=" + telephone + ", birthday=" + birthday + ", sex=" + sex + ", state=" + state
 			+ ", code=" + code + "]";
 }
